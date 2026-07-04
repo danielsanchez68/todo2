@@ -5,8 +5,17 @@
   --danger:#ef4444;
   --text:#0f172a;
 }
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#0f172a;
+    --card:#1e293b;
+    --accent:#3b82f6;
+    --danger:#f87171;
+    --text:#f1f5f9;
+  }
+}
 *{box-sizing:border-box}
-html,body{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial;color:var(--text);background:var(--bg)}
+html,body{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial;color:var(--text);background:var(--bg);transition:background 0.3s,color 0.3s}
 .container{max-width:640px;margin:32px auto;padding:20px}
 h1{margin:0 0 16px;font-size:1.6rem}
 form{display:flex;gap:8px;margin-bottom:16px}
@@ -14,10 +23,10 @@ input#task-input{flex:1;padding:10px 12px;border:1px solid #d1d5db;border-radius
 button{background:var(--accent);color:white;border:none;padding:10px 14px;border-radius:6px;cursor:pointer}
 button#clear-btn{background:transparent;color:var(--accent);border:1px solid transparent;padding:8px 10px}
 ul#tasks{list-style:none;padding:0;margin:0}
-li.task{display:flex;align-items:center;gap:10px;padding:10px;border-radius:8px;background:var(--card);margin-bottom:8px;border:1px solid #e6e9ef}
+li.task{display:flex;align-items:center;gap:10px;padding:10px;border-radius:8px;background:var(--card);margin-bottom:8px;border:1px solid rgba(100,116,139,0.3)}
 li.task .text{flex:1}
-li.task .text.completed{text-decoration:line-through;color:#6b7280}
-.btn-delete{background:transparent;border:1px solid #fee2e2;color:var(--danger);padding:6px 8px;border-radius:6px;cursor:pointer}
+li.task .text.completed{text-decoration:line-through;color:rgba(107,114,128,0.7)}
+.btn-delete{background:transparent;border:1px solid rgba(239,68,68,0.2);color:var(--danger);padding:6px 8px;border-radius:6px;cursor:pointer}
 .controls{display:flex;justify-content:space-between;align-items:center;margin-top:12px}
 .visually-hidden{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
 @media (max-width:420px){.container{margin:12px;padding:12px}button{padding:8px 10px}}
