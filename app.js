@@ -3,8 +3,10 @@ const input = document.getElementById('task-input')
 const list = document.getElementById('tasks')
 const counter = document.getElementById('counter')
 const clearBtn = document.getElementById('clear-btn')
+const themeToggle = document.getElementById('theme-toggle')
 
 let tasks = JSON.parse(localStorage.getItem('todo_tasks') || '[]')
+let darkMode = JSON.parse(localStorage.getItem('todo_dark_mode') || 'false')
 
 function saveTasks(){
   localStorage.setItem('todo_tasks', JSON.stringify(tasks))
@@ -83,6 +85,19 @@ clearBtn.addEventListener('click', ()=>{
   tasks = []
   saveTasks(); render()
 })
+
+themeToggle.addEventListener('click', ()=>{
+  darkMode = !darkMode
+  localStorage.setItem('todo_dark_mode', JSON.stringify(darkMode))
+  document.body.classList.toggle('dark-mode')
+  themeToggle.textContent = darkMode ? '☀️' : '🌙'
+})
+
+// apply saved theme
+if(darkMode) {
+  document.body.classList.add('dark-mode')
+  themeToggle.textContent = '☀️'
+}
 
 // initial render
 render()
